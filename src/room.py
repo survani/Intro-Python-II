@@ -8,16 +8,16 @@ class Room:
 
     def new_location(self, direction):
         if direction == 'n':
-            print(" You just walked north!")
+            print("You just walked north!")
             return self.n_to
         elif direction == 's':
-            print(" You just walked south!")
+            print("You just walked south!")
             return self.s_to
         elif direction == 'e':
-            print(" You just walked east!")
+            print("You just walked east!")
             return self.e_to
         elif direction == 'w':
-            print(" You just walked west!")
+            print("You just walked west!")
             return self.w_to
         else:
             return None

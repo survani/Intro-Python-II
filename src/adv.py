@@ -51,7 +51,20 @@ room['treasure'].s_to = room['narrow']
 # If the user enters "q", quit the game
 
 # Welcome Message
-message = "Welcome to the Adventure Game!"
+message = '''
+Welcome to the Adventure Game!
+--------------------------------
+Created By: Giovani Garfias
+Idea from: Lambda School
+--------------------------------
+Instructions: To play the game you must select from the following directions
+North = n
+South = s
+East = e
+West = w
+End Game = q
+
+'''
 print(message)
 
 # Choose Player name
@@ -61,16 +74,21 @@ player_name = input("Please enter your player's name -> ")
 main_player = Player(player_name, room['outside'])
 
 # Game started message
-print(f"Nice to see you here {main_player.name}! If you ever want to quit the game make sure you type 'q'")
+print(f"Nice to see you here {main_player.name}!")
 
 # Directions a player can make
 directions = ["n", "s", "e", "w"]
 
-# Game logic (loop starts here)
+# Intro Message
+print(f'''\nYou have now entered the world! Navigate your way around the world to find the treasure
+---------------------------------------------------------------------------------------''')
 
+# Game logic (loop starts here)
 while True:
-    print(f"Located: {main_player.room.name}")
-    print(f"Description: {main_player.room.description}")
+    print(f'''
+Current Location: {main_player.room.name}
+Description: {main_player.room.description}    
+''')
 
     player_input = input("Choose what direction you want to travel ['n', 's', 'e', 'w'] -> ")
 
