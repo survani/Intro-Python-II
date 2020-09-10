@@ -1,5 +1,6 @@
 from room import Room
 from player import Player
+from item import Item
 
 # Declare all the rooms
 
@@ -51,6 +52,7 @@ room['treasure'].s_to = room['narrow']
 # If the user enters "q", quit the game
 
 # Welcome Message
+
 message = '''
 Welcome to the Adventure Game!
 --------------------------------
@@ -83,12 +85,22 @@ directions = ["n", "s", "e", "w"]
 print(f'''\nYou have now entered the world! Navigate your way around the world to find the treasure
 ---------------------------------------------------------------------------------------''')
 
+# Items in each room
+room['foyer'].place_item(Item("Rope", "Used to climb big rocks!"))
+
 # Game logic (loop starts here)
 while True:
     print(f'''
 Current Location: {main_player.room.name}
 Description: {main_player.room.description}    
 ''')
+
+    if len(main_player.room.items) > 0:
+        print(f"Found Item {main_player.room.items[0].name}!")
+        pickup = input("Want to grab this item? y/n")
+        if pickup == 'y':
+            item = main_player.room.items[0]
+            main_player.get_item(item.name, main_player.room.name)
 
     player_input = input("Choose what direction you want to travel ['n', 's', 'e', 'w'] -> ")
 
